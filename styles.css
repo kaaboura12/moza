@@ -488,4 +488,209 @@ footer {
     .growth-container h2, .support-container h2 {
         font-size: 2.5rem;
     }
+}
+
+.journey-section {
+    padding: 6rem 2rem;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.journey-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.journey-container h2 {
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    color: #ff6b6b;
+    margin-bottom: 4rem;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background: #ff6b6b;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+    border-radius: 3px;
+}
+
+.timeline-entry {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    animation: fadeInUp 0.5s ease-out both;
+}
+
+.timeline-entry.left {
+    left: 0;
+}
+
+.timeline-entry.right {
+    left: 50%;
+}
+
+.timeline-content {
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+}
+
+.timeline-content h3 {
+    font-size: 1.5rem;
+    color: #ff6b6b;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-img {
+    width: 50px;
+    height: 50px;
+    background: #ff6b6b;
+    border-radius: 50%;
+    position: absolute;
+    right: -75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-entry.right .timeline-img {
+    left: -75px;
+}
+
+.letter-section {
+    padding: 4rem 2rem;
+    background: #fafafa;
+    position: relative;
+    overflow: hidden;
+}
+
+.letter-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.letter {
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+}
+
+.letter:hover {
+    transform: translateY(-10px);
+}
+
+.letter::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(255, 107, 107, 0.1));
+    border-radius: 20px;
+}
+
+.letter h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #ff6b6b;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.letter-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.letter-content p {
+    margin-bottom: 1.5rem;
+}
+
+.letter-content ul {
+    list-style: none;
+    margin: 2rem 0;
+}
+
+.letter-content ul li {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+    position: relative;
+}
+
+.letter-signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: #ff6b6b;
+    text-align: right;
+    margin-top: 2rem;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .timeline::after {
+        left: 31px;
+    }
+    
+    .timeline-entry {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+    
+    .timeline-entry.right {
+        left: 0;
+    }
+    
+    .timeline-img {
+        left: 6px !important;
+        right: auto;
+    }
+    
+    .letter {
+        padding: 2rem;
+    }
+    
+    .letter h2 {
+        font-size: 2rem;
+    }
 } 

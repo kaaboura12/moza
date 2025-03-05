@@ -111,5 +111,48 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         `;
         document.head.appendChild(style);
+
+        // Animate timeline entries on scroll
+        const timelineEntries = document.querySelectorAll('.timeline-entry');
+        const animateTimeline = () => {
+            timelineEntries.forEach(entry => {
+                const entryTop = entry.getBoundingClientRect().top;
+                if (entryTop < window.innerHeight * 0.8) {
+                    entry.style.opacity = '1';
+                    entry.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        timelineEntries.forEach(entry => {
+            entry.style.opacity = '0';
+            entry.style.transform = 'translateY(20px)';
+            entry.style.transition = 'all 0.5s ease-out';
+        });
+
+        window.addEventListener('scroll', animateTimeline);
+        animateTimeline();
+
+        // Add hover effect to letter
+        const letter = document.querySelector('.letter');
+        if (letter) {
+            letter.addEventListener('mousemove', (e) => {
+                const rect = letter.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const angleX = (y - centerY) / 20;
+                const angleY = (centerX - x) / 20;
+                
+                letter.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) translateY(-10px)`;
+            });
+            
+            letter.addEventListener('mouseleave', () => {
+                letter.style.transform = 'translateY(-10px)';
+            });
+        }
     }
 }); 
