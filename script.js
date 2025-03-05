@@ -1,4 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Music player setup
+    const musicToggle = document.querySelector('.music-toggle');
+    const backgroundMusic = document.getElementById('background-music');
+    let isMusicPlaying = false;
+
+    musicToggle.addEventListener('click', () => {
+        if (isMusicPlaying) {
+            backgroundMusic.pause();
+            musicToggle.classList.remove('playing');
+        } else {
+            backgroundMusic.play();
+            musicToggle.classList.add('playing');
+        }
+        isMusicPlaying = !isMusicPlaying;
+    });
+
     // Heart click handler
     const heartIntro = document.querySelector('.heart-intro');
     const mainContent = document.querySelector('.main-content');
@@ -8,6 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
         heartIntro.classList.add('fade-out');
         mainContent.classList.remove('hidden');
         mainContent.classList.add('fade-in');
+        
+        // Start playing music when heart is clicked
+        if (!isMusicPlaying) {
+            backgroundMusic.play();
+            musicToggle.classList.add('playing');
+            isMusicPlaying = true;
+        }
         
         // Initialize the rest of the animations after the main content is visible
         setTimeout(initializeMainContent, 1000);
